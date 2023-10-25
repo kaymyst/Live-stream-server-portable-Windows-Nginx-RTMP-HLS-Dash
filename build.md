@@ -110,3 +110,4 @@ run the following
 ```
 nmake
 ```
+file will be in objs/nginx.exe
