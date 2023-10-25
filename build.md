@@ -29,7 +29,7 @@ git switch branches/stable-1.24
 
 cd nginx
 
-git clone https://github.com/arut/nginx-rtmp-module
+git clone https://github.com/kaymyst/nginx-rtmp-module
 
 
 Fix nginx-rtmp-module
