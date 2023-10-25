@@ -6,7 +6,7 @@ requirements:
 - Perl, if you want to build OpenSSL® and nginx with SSL support.  [Strawberry Perl](http://strawberryperl.com/).
 - [PCRE](http://www.pcre.org/), [zlib](https://zlib.net/) and [OpenSSL](http://www.openssl.org/) libraries sources.
 
-- open VS2013 x64 Native Tools Command Prompt, 
+- open VS2022 x64 Native Tools Command Prompt, 
 - enter C:\msys64 folder
 
 ```
