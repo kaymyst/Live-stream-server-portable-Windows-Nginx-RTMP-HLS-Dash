@@ -71,6 +71,7 @@ tar -xzf ../../openssl-3.0.11.tar.gz
 ```
 
 # 5 configue
+```
 auto/configure \
     --with-cc=cl \
     --with-debug \
@@ -102,8 +103,9 @@ auto/configure \
     --with-stream \
     --with-stream_ssl_module \
     --add-module=nginx-rtmp-module
+```
 
-# 6 mkae
+# 6 build
 run the following
 ```
 nmake
