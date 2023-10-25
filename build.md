@@ -1,11 +1,12 @@
 Building nginx on windows
 
-requirements:
+# requirements:
 - Microsoft Visual C compiler. Microsoft Visual Studio 2022 with c++.
 - [MSYS2](https://www.msys2.org/)
 - Perl, if you want to build OpenSSL® and nginx with SSL support.  [Strawberry Perl](http://strawberryperl.com/).
 - [PCRE](http://www.pcre.org/), [zlib](https://zlib.net/) and [OpenSSL](http://www.openssl.org/) libraries sources.
 
+# 1 start msys with dev environment
 - open VS2022 x64 Native Tools Command Prompt, 
 - enter C:\msys64 folder
 
@@ -23,17 +24,19 @@ Then create a symlink to Strawberry Perl's executable in its place:
 ```
 ln -s /c/strawberry/perl/bin/perl.exe /usr/bin/perl
 ```
+# 2 get repos
 
 git clone https://github.com/nginx/nginx
-git switch branches/stable-1.24
 
 cd nginx
 
+git switch branches/stable-1.24
+
 git clone https://github.com/kaymyst/nginx-rtmp-module
 
+# 3 - Fix nginx-rtmp-module 
 
-Fix nginx-rtmp-module
-
+the following is already been done in kaymyst repo so do not do this
 
 nginx-rtmp-module/ngx_rtmp_core_module.c(611): warning C4456: declaration of 'sa' hides previous local declaration
 nginx-rtmp-module/ngx_rtmp_core_module.c(506): note: see declaration of 'sa'
@@ -57,6 +60,7 @@ nginx-rtmp-module/ngx_rtmp_flv_module.c(521): warning C4334: '<<': result of 32-
  converted to 64 bits (was 64-bit shift intended?)
 ```
 
+# 4 unzip libs
 ```
 mkdir objs
 mkdir objs/lib
@@ -66,7 +70,7 @@ tar -xzf ../../zlib-1.3.tar.gz
 tar -xzf ../../openssl-3.0.11.tar.gz
 ```
 
-
+# 5 configue
 auto/configure \
     --with-cc=cl \
     --with-debug \
@@ -98,3 +102,9 @@ auto/configure \
     --with-stream \
     --with-stream_ssl_module \
     --add-module=nginx-rtmp-module
+
+# 6 mkae
+run the following
+```
+nmake
+```
